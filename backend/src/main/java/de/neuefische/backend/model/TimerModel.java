@@ -12,4 +12,5 @@ public class TimerModel {
 
     @JsonProperty("timerDuration")
     private String timerDuration;
+    private String id;
 }

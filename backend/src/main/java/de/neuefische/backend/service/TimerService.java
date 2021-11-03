@@ -19,4 +19,9 @@ public class TimerService {
     public TimerModel getTimer() {
         return timerRepo.findAll().get(0);
     }
+
+    public TimerModel update(TimerModel timerModel) {
+        timerRepo.deleteAll();
+        return timerRepo.save(timerModel);
+    }
 }

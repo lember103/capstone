@@ -23,7 +23,6 @@ public class TimerController {
 
     @PostMapping
     public TimerModel postTimer(@RequestBody TimerModel timerModel){
-        System.out.println(timerModel);
-        return timerModel;
+        return timerService.update(timerModel);
     }
 }
