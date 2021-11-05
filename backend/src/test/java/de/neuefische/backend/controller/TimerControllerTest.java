@@ -25,9 +25,6 @@ class TimerControllerTest {
     @Autowired
     private TimerService timerService;
 
-    @Autowired
-    private TimerRepo timerRepo;
-
     @Test
     void getTimer() {
         //GIVEN
