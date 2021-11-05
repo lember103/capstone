@@ -22,7 +22,7 @@ public class TimerController {
     }
 
     @PostMapping
-    public TimerModel postTimer(@RequestBody TimerModel timerModel){
+    public TimerModel updateTimer(@RequestBody TimerModel timerModel){
         return timerService.update(timerModel);
     }
 }
