@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class TimerService {
@@ -18,10 +19,12 @@ public class TimerService {
     }
 
     public TimerModel getTimer() {
-        if (timerRepo.findAll().isEmpty()){
+        Optional<TimerModel> optionalTimer = timerRepo.findFirstByOrderById();
+
+        if (optionalTimer.isEmpty()){
             throw new NoSuchElementException("No timer in database");
         } else {
-            return timerRepo.findAll().get(0);
+            return optionalTimer.get();
         }
     }
 
