@@ -3,7 +3,7 @@ import axios from "axios";
 export const postMinutes = minutes => {
 
     const timer = {
-        timerDuration: minutes
+        duration: minutes
     }
 
     return axios
