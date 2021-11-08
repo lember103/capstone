@@ -19,13 +19,7 @@ public class TimerService {
     }
 
     public TimerModel getTimer() {
-        Optional<TimerModel> optionalTimer = timerRepo.findFirstByOrderById();
-
-        if (optionalTimer.isEmpty()){
-            throw new IllegalStateException("No timer in database");
-        } else {
-            return optionalTimer.get();
-        }
+       return timerRepo.findFirstByOrderById().orElseThrow(()-> new IllegalStateException("No timer in database")
     }
 
     public TimerModel update(TimerModel timerModel) {
