@@ -18,13 +18,13 @@ class TimerServiceTest {
     private final TimerService timerService = new TimerService(timerRepo);
 
     @Test
-    void getTimerThrowsNoSuchElementException() {
+    void getTimerThrowsIllegalStateException() {
         //GIVEN
         when(timerRepo.findFirstByOrderById()).thenReturn(Optional.empty());
 
         //WHEN
         //THEN
-        assertThrows(NoSuchElementException.class, timerService::getTimer);
+        assertThrows(IllegalStateException.class, timerService::getTimer);
         verify(timerRepo).findFirstByOrderById();
     }
 
