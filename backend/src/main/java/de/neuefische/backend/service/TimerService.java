@@ -5,9 +5,6 @@ import de.neuefische.backend.repo.TimerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.NoSuchElementException;
-import java.util.Optional;
-
 @Service
 public class TimerService {
 
@@ -19,7 +16,8 @@ public class TimerService {
     }
 
     public TimerModel getTimer() {
-       return timerRepo.findFirstByOrderById().orElseThrow(()-> new IllegalStateException("No timer in database")
+       return timerRepo.findFirstByOrderById().orElseThrow(
+               ()-> new IllegalStateException("No timer in database"));
     }
 
     public TimerModel update(TimerModel timerModel) {

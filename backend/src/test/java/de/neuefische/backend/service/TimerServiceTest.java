@@ -4,8 +4,7 @@ import de.neuefische.backend.model.TimerModel;
 import de.neuefische.backend.repo.TimerRepo;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.time.Duration;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,13 +31,13 @@ class TimerServiceTest {
     void getTimer(){
         //GIVEN
         TimerModel timer = new TimerModel();
-        timer.setTimerDuration("1");
-        String expected = timer.getTimerDuration();
+        timer.setDuration(Duration.ofMinutes(1));
+        Duration expected = timer.getDuration();
 
         when(timerRepo.findFirstByOrderById()).thenReturn(Optional.of(timer));
 
         //WHEN
-        String actual = timerService.getTimer().getTimerDuration();
+        Duration actual = timerService.getTimer().getDuration();
 
         //THEN
         assertEquals(expected, actual);
@@ -49,13 +48,13 @@ class TimerServiceTest {
     void update() {
         //GIVEN
         TimerModel timer = new TimerModel();
-        timer.setTimerDuration("1");
-        String expected = timer.getTimerDuration();
+        timer.setDuration(Duration.ofMinutes(1));
+        Duration expected = timer.getDuration();
 
         when(timerRepo.save(timer)).thenReturn(timer);
 
         //WHEN
-        String actual = timerService.update(timer).getTimerDuration();
+        Duration actual = timerService.update(timer).getDuration();
 
         //THEN
         assertEquals(expected, actual);
