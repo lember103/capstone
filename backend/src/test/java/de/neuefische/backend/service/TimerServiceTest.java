@@ -31,13 +31,13 @@ class TimerServiceTest {
     void getTimer(){
         //GIVEN
         PumpTimer timer = new PumpTimer();
-        timer.setDuration(Duration.ofMinutes(1));
-        Duration expected = timer.getDuration();
+        timer.setMinutes(1);
+        float expected = timer.getMinutes();
 
         when(timerRepo.findFirstByOrderById()).thenReturn(Optional.of(timer));
 
         //WHEN
-        Duration actual = timerService.getTimer().getDuration();
+        float actual = timerService.getTimer().getMinutes();
 
         //THEN
         assertEquals(expected, actual);
@@ -48,13 +48,13 @@ class TimerServiceTest {
     void update() {
         //GIVEN
         PumpTimer timer = new PumpTimer();
-        timer.setDuration(Duration.ofMinutes(1));
-        Duration expected = timer.getDuration();
+        timer.setMinutes(1);
+        float expected = timer.getMinutes();
 
         when(timerRepo.save(timer)).thenReturn(timer);
 
         //WHEN
-        Duration actual = timerService.update(timer).getDuration();
+        float actual = timerService.update(timer).getMinutes();
 
         //THEN
         assertEquals(expected, actual);
