@@ -1,6 +1,6 @@
 package de.neuefische.backend.service;
 
-import de.neuefische.backend.model.TimerModel;
+import de.neuefische.backend.model.PumpTimer;
 import de.neuefische.backend.repo.TimerRepo;
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +30,7 @@ class TimerServiceTest {
     @Test
     void getTimer(){
         //GIVEN
-        TimerModel timer = new TimerModel();
+        PumpTimer timer = new PumpTimer();
         timer.setDuration(Duration.ofMinutes(1));
         Duration expected = timer.getDuration();
 
@@ -47,7 +47,7 @@ class TimerServiceTest {
     @Test
     void update() {
         //GIVEN
-        TimerModel timer = new TimerModel();
+        PumpTimer timer = new PumpTimer();
         timer.setDuration(Duration.ofMinutes(1));
         Duration expected = timer.getDuration();
 

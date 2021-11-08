@@ -1,13 +1,13 @@
 package de.neuefische.backend.repo;
 
-import de.neuefische.backend.model.TimerModel;
+import de.neuefische.backend.model.PumpTimer;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface TimerRepo extends PagingAndSortingRepository<TimerModel, String> {
+public interface TimerRepo extends PagingAndSortingRepository<PumpTimer, String> {
 
-    List<TimerModel> findAll();
-    Optional<TimerModel> findFirstByOrderById();
+    List<PumpTimer> findAll();
+    Optional<PumpTimer> findFirstByOrderById();
 }

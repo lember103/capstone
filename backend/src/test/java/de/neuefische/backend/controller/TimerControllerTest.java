@@ -1,6 +1,6 @@
 package de.neuefische.backend.controller;
 
-import de.neuefische.backend.model.TimerModel;
+import de.neuefische.backend.model.PumpTimer;
 import de.neuefische.backend.service.TimerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,15 +24,15 @@ class TimerControllerTest {
     @Test
     void getTimer() {
         //GIVEN
-        TimerModel timer = new TimerModel();
+        PumpTimer timer = new PumpTimer();
         timer.setDuration(Duration.ofMinutes(1));
         Duration expected = timer.getDuration();
 
         timerService.update(timer);
 
         //WHEN
-        ResponseEntity<TimerModel> getResponse = testRestTemplate.getForEntity("/api/timer", TimerModel.class);
-        TimerModel responseTimer = getResponse.getBody();
+        ResponseEntity<PumpTimer> getResponse = testRestTemplate.getForEntity("/api/timer", PumpTimer.class);
+        PumpTimer responseTimer = getResponse.getBody();
         assert responseTimer != null;
         Duration actual = responseTimer.getDuration();
 
@@ -43,13 +43,13 @@ class TimerControllerTest {
     @Test
     void updateTimer() {
         //GIVEN
-        TimerModel timer = new TimerModel();
+        PumpTimer timer = new PumpTimer();
         timer.setDuration(Duration.ofMinutes(1));
         Duration expected = timer.getDuration();
 
         //WHEN
-        ResponseEntity<TimerModel> postResponse = testRestTemplate.postForEntity("/api/timer", timer, TimerModel.class);
-        TimerModel responseTimer = postResponse.getBody();
+        ResponseEntity<PumpTimer> postResponse = testRestTemplate.postForEntity("/api/timer", timer, PumpTimer.class);
+        PumpTimer responseTimer = postResponse.getBody();
         assert responseTimer != null;
         Duration actual = responseTimer.getDuration();
 

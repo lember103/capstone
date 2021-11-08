@@ -1,6 +1,6 @@
 package de.neuefische.backend.controller;
 
-import de.neuefische.backend.model.TimerModel;
+import de.neuefische.backend.model.PumpTimer;
 import de.neuefische.backend.service.TimerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +17,12 @@ public class TimerController {
     }
 
     @GetMapping
-    public TimerModel getTimer(){
+    public PumpTimer getTimer(){
         return timerService.getTimer();
     }
 
     @PostMapping
-    public TimerModel updateTimer(@RequestBody TimerModel timerModel){
-        return timerService.update(timerModel);
+    public PumpTimer updateTimer(@RequestBody PumpTimer pumpTimer){
+        return timerService.update(pumpTimer);
     }
 }

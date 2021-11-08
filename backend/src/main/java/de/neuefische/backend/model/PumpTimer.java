@@ -7,7 +7,7 @@ import java.time.Duration;
 
 @Data
 @NoArgsConstructor
-public class TimerModel {
+public class PumpTimer {
 
     private Duration duration;
     private String id;

@@ -1,6 +1,6 @@
 package de.neuefische.backend.service;
 
-import de.neuefische.backend.model.TimerModel;
+import de.neuefische.backend.model.PumpTimer;
 import de.neuefische.backend.repo.TimerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +15,13 @@ public class TimerService {
         this.timerRepo = timerRepo;
     }
 
-    public TimerModel getTimer() {
+    public PumpTimer getTimer() {
        return timerRepo.findFirstByOrderById().orElseThrow(
                ()-> new IllegalStateException("No timer in database"));
     }
 
-    public TimerModel update(TimerModel timerModel) {
+    public PumpTimer update(PumpTimer pumpTimer) {
         timerRepo.deleteAll();
-        return timerRepo.save(timerModel);
+        return timerRepo.save(pumpTimer);
     }
 }
