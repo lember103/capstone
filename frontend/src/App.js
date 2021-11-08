@@ -10,10 +10,10 @@ function App() {
     }
 
     return (
-        <>
+        <form>
             <input onChange={event => setMinutes(event.target.value)} placeholder={"Minuten"}/>
             <button onClick={handleClick}>run system</button>
-        </>
+        </form>
     );
 }
 

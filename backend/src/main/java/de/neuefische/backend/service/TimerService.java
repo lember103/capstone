@@ -22,7 +22,7 @@ public class TimerService {
         Optional<TimerModel> optionalTimer = timerRepo.findFirstByOrderById();
 
         if (optionalTimer.isEmpty()){
-            throw new NoSuchElementException("No timer in database");
+            throw new IllegalStateException("No timer in database");
         } else {
             return optionalTimer.get();
         }

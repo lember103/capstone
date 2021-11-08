@@ -1,6 +1,5 @@
 package de.neuefische.backend.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TimerModel {
 
-    @JsonProperty("timerDuration")
     private String timerDuration;
     private String id;
 }
