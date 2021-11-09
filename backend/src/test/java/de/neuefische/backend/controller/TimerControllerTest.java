@@ -26,18 +26,17 @@ class TimerControllerTest {
         //GIVEN
         PumpTimer timer = new PumpTimer();
         timer.setMinutes(1);
-        float expected = timer.getMinutes();
+        timer.setDone(false);
+        timer.setStopPump(false);
 
         timerService.update(timer);
 
         //WHEN
         ResponseEntity<PumpTimer> getResponse = testRestTemplate.getForEntity("/api/timer", PumpTimer.class);
-        PumpTimer responseTimer = getResponse.getBody();
-        assert responseTimer != null;
-        float actual = responseTimer.getMinutes();
+        PumpTimer actual = getResponse.getBody();
 
         //THEN
-        assertEquals(expected, actual);
+        assertEquals(timer, actual);
     }
 
     @Test
@@ -45,15 +44,16 @@ class TimerControllerTest {
         //GIVEN
         PumpTimer timer = new PumpTimer();
         timer.setMinutes(1);
-        float expected = timer.getMinutes();
+        timer.setDone(false);
+        timer.setStopPump(false);
 
         //WHEN
         ResponseEntity<PumpTimer> postResponse = testRestTemplate.postForEntity("/api/timer", timer, PumpTimer.class);
-        PumpTimer responseTimer = postResponse.getBody();
-        assert responseTimer != null;
-        float actual = responseTimer.getMinutes();
+        PumpTimer actual = postResponse.getBody();
+        assert actual != null;
+        timer.setId(actual.getId());
 
         //THEN
-        assertEquals(expected, actual);
+        assertEquals(timer, actual);
     }
 }
