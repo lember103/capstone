@@ -9,4 +9,5 @@ public class PumpTimer {
 
     private float minutes;
     private String id;
+    private boolean isDone;
 }
