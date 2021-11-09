@@ -12,7 +12,7 @@ export default function PumpAction(){
 
     return(
         <Styled>
-            <input onChange={event => setMinutes(event.target.value)} placeholder={"Minuten"}/>
+            <input type={"text"} onChange={event => setMinutes(event.target.value)} placeholder={"Minuten"}/>
             <button onClick={updateTimer}>run system</button>
         </Styled>
     )
