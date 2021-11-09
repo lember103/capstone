@@ -5,6 +5,8 @@ import de.neuefische.backend.service.TimerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Duration;
+
 @RestController
 @RequestMapping("/api/timer")
 public class TimerController {
