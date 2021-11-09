@@ -29,21 +29,21 @@ class TimerServiceTest {
     }
 
     @Test
-    @Disabled
     void getTimer(){
         //GIVEN
         PumpTimer timer = new PumpTimer();
         timer.setMinutes(1);
-        float expected = timer.getMinutes();
+        timer.setDone(false);
+        timer.setStopPump(false);
 
         when(timerRepo.findFirstByOrderById()).thenReturn(Optional.of(timer));
 
         //WHEN
-        float actual = timerService.getTimer().getMinutes();
+        PumpTimer actual = timerService.getTimer();
 
         //THEN
-        assertEquals(expected, actual);
-        verify(timerRepo).findFirstByOrderById();
+        assertEquals(timer, actual);
+        verify(timerRepo, times(2)).findFirstByOrderById();
     }
 
     @Test
@@ -51,15 +51,16 @@ class TimerServiceTest {
         //GIVEN
         PumpTimer timer = new PumpTimer();
         timer.setMinutes(1);
-        float expected = timer.getMinutes();
+        timer.setDone(false);
+        timer.setStopPump(false);
 
         when(timerRepo.save(timer)).thenReturn(timer);
 
         //WHEN
-        float actual = timerService.update(timer).getMinutes();
+        PumpTimer actual = timerService.update(timer);
 
         //THEN
-        assertEquals(expected, actual);
+        assertEquals(timer, actual);
         verify(timerRepo).save(timer);
     }
 }
