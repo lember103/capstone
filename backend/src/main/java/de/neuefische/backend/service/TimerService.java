@@ -17,18 +17,17 @@ public class TimerService {
 
     public PumpTimer getTimer() {
         PumpTimer pumpTimer = getTimerFromRepo();
-        if (!pumpTimer.isDone()) {
-            return setPumpTimerAsDone();
+        if (!pumpTimer.isDone()){
+            setPumpTimerAsDone();
         }
         return pumpTimer;
     }
 
-    private PumpTimer setPumpTimerAsDone() {
+    private void setPumpTimerAsDone() {
         PumpTimer pumpTimer = getTimerFromRepo();
         pumpTimer.setDone(true);
         timerRepo.deleteAll();
         timerRepo.save(pumpTimer);
-        return pumpTimer;
     }
 
     private PumpTimer getTimerFromRepo() {
@@ -38,7 +37,6 @@ public class TimerService {
 
     public PumpTimer update(PumpTimer pumpTimer) {
         timerRepo.deleteAll();
-        pumpTimer.setDone(false);
         return timerRepo.save(pumpTimer);
     }
 }
