@@ -3,7 +3,7 @@ name: Deploy micro-gardener to Heroku
 on:
   push:
     branches:
-      - stop-pump
+      - main
 
 jobs:
   build-frontend:
