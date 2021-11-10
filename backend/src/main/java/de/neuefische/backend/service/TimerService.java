@@ -16,8 +16,23 @@ public class TimerService {
     }
 
     public PumpTimer getTimer() {
-       return timerRepo.findFirstByOrderById().orElseThrow(
-               ()-> new IllegalStateException("No timer in database"));
+        PumpTimer pumpTimer = getTimerFromRepo();
+        if (!pumpTimer.isDone()){
+            setPumpTimerAsDone();
+        }
+        return pumpTimer;
+    }
+
+    private void setPumpTimerAsDone() {
+        PumpTimer pumpTimer = getTimerFromRepo();
+        pumpTimer.setDone(true);
+        timerRepo.deleteAll();
+        timerRepo.save(pumpTimer);
+    }
+
+    private PumpTimer getTimerFromRepo() {
+        return timerRepo.findFirstByOrderById().orElseThrow(
+                () -> new IllegalStateException("No timer in database"));
     }
 
     public PumpTimer update(PumpTimer pumpTimer) {

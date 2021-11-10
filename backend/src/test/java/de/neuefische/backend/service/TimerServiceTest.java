@@ -4,7 +4,6 @@ import de.neuefische.backend.model.PumpTimer;
 import de.neuefische.backend.repo.TimerRepo;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,33 +30,35 @@ class TimerServiceTest {
     void getTimer(){
         //GIVEN
         PumpTimer timer = new PumpTimer();
-        timer.setMinutes(1);
-        float expected = timer.getMinutes();
+        timer.setPumpRunTimeInMinutes(1);
+        timer.setDone(false);
+        timer.setStopPump(false);
 
         when(timerRepo.findFirstByOrderById()).thenReturn(Optional.of(timer));
 
         //WHEN
-        float actual = timerService.getTimer().getMinutes();
+        PumpTimer actual = timerService.getTimer();
 
         //THEN
-        assertEquals(expected, actual);
-        verify(timerRepo).findFirstByOrderById();
+        assertEquals(timer, actual);
+        verify(timerRepo, times(2)).findFirstByOrderById();
     }
 
     @Test
     void update() {
         //GIVEN
         PumpTimer timer = new PumpTimer();
-        timer.setMinutes(1);
-        float expected = timer.getMinutes();
+        timer.setPumpRunTimeInMinutes(1);
+        timer.setDone(false);
+        timer.setStopPump(false);
 
         when(timerRepo.save(timer)).thenReturn(timer);
 
         //WHEN
-        float actual = timerService.update(timer).getMinutes();
+        PumpTimer actual = timerService.update(timer);
 
         //THEN
-        assertEquals(expected, actual);
+        assertEquals(timer, actual);
         verify(timerRepo).save(timer);
     }
 }

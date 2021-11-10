@@ -1,19 +1,24 @@
 import styled from "styled-components";
 import {useState} from "react";
-import {postMinutes} from "../service/timer-api-service";
+import {runPump, stopPump} from "../service/timer-api-service";
 
 export default function PumpAction(){
 
-    const [minutes, setMinutes] = useState("")
+    const [minutes, setMinutes] = useState(0)
 
-    const updateTimer = () => {
-        postMinutes(minutes).then(response => console.log(response))
+    const handleClickRunPumpButton = () => {
+        runPump(minutes).then()
+    }
+
+    const handleClickStopPumpButton = () => {
+        stopPump(minutes).then()
     }
 
     return(
         <Styled>
-            <input type={"text"} onChange={event => setMinutes(event.target.value)} placeholder={"Minuten"}/>
-            <button onClick={updateTimer}>run system</button>
+            <input type={"number"} onChange={event => setMinutes(event.target.value)} placeholder={"Minuten"}/>
+            <button onClick={handleClickRunPumpButton}>run pump</button>
+            <button onClick={handleClickStopPumpButton}>stop pump</button>
         </Styled>
     )
 }
