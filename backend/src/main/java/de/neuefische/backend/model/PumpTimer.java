@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PumpTimer {
 
-    private float minutes;
+    private float pumpRunTimeInMinutes;
     private String id;
     private boolean isDone;
     private boolean stopPump;

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const runPump = minutes => {
     const timer = {
-        minutes: minutes,
+        pumpRunTimeInMinutes: minutes,
         stopPump: false
     }
     return axios
@@ -13,7 +13,7 @@ export const runPump = minutes => {
 
 export const stopPump = minutes => {
     const timer = {
-        minutes: minutes,
+        pumpRunTimeInMinutes: minutes,
         stopPump: true
     }
     return axios

@@ -2,10 +2,8 @@ package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.PumpTimer;
 import de.neuefische.backend.repo.TimerRepo;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -32,7 +30,7 @@ class TimerServiceTest {
     void getTimer(){
         //GIVEN
         PumpTimer timer = new PumpTimer();
-        timer.setMinutes(1);
+        timer.setPumpRunTimeInMinutes(1);
         timer.setDone(false);
         timer.setStopPump(false);
 
@@ -50,7 +48,7 @@ class TimerServiceTest {
     void update() {
         //GIVEN
         PumpTimer timer = new PumpTimer();
-        timer.setMinutes(1);
+        timer.setPumpRunTimeInMinutes(1);
         timer.setDone(false);
         timer.setStopPump(false);
 

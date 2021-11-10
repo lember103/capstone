@@ -8,8 +8,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.ResponseEntity;
 
-import java.time.Duration;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -25,7 +23,7 @@ class TimerControllerTest {
     void getTimer() {
         //GIVEN
         PumpTimer timer = new PumpTimer();
-        timer.setMinutes(1);
+        timer.setPumpRunTimeInMinutes(1);
         timer.setDone(false);
         timer.setStopPump(false);
 
@@ -43,7 +41,7 @@ class TimerControllerTest {
     void updateTimer() {
         //GIVEN
         PumpTimer timer = new PumpTimer();
-        timer.setMinutes(1);
+        timer.setPumpRunTimeInMinutes(1);
         timer.setDone(false);
         timer.setStopPump(false);
 
