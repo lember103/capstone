@@ -8,6 +8,6 @@ import java.util.List;
 @Data
 public class WeatherForecast {
 
-    private List<Days> daily = new ArrayList<>();
+    private List<DailyForecast> daily = new ArrayList<>();
 
 }

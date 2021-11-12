@@ -1,6 +1,6 @@
 package de.neuefische.backend.controller;
 
-import de.neuefische.backend.model.Days;
+import de.neuefische.backend.model.DailyForecast;
 import de.neuefische.backend.service.OpenWeatherApiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ public class OpenWeatherApiController {
     }
 
     @GetMapping
-    public Days getWeatherForecast(){
+    public DailyForecast getWeatherForecast(){
         return openWeatherApiService.getWeatherForecastFromOpenWeather();
     }
 }
