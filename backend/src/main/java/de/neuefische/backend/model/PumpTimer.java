@@ -11,4 +11,5 @@ public class PumpTimer {
     private String id;
     private boolean isDone;
     private boolean stopPump;
+    private boolean isAutomatic;
 }

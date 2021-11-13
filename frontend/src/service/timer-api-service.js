@@ -21,3 +21,13 @@ export const stopPump = minutes => {
         .then(response => response.data)
         .catch(error => console.log(error))
 }
+
+export const runAutoPump = () => {
+    const timer = {
+        automatic: true
+    }
+    return axios
+        .post("/api/timer", timer)
+        .then(response => response.data)
+        .catch(error => console.log(error))
+}
