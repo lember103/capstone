@@ -5,9 +5,17 @@ import {getWeatherData} from "../service/weather-api-service";
 export default function WeatherWidget(){
 
     const initialState = {
-        "pop": 0.0,
-        "rain": 0.0,
-        "temp": 0.0
+        "Temperature":{
+            "Maximum":{
+                "Value":0.0
+            }
+        },
+        "Day":{
+            "RainProbability":0,
+            "Rain":{
+                "Value":0.0
+            }
+        },
     }
 
     const [weatherData, setWeatherData] = useState(initialState)
@@ -18,8 +26,8 @@ export default function WeatherWidget(){
 
     return(
         <Styled>
-            <div>Max. Temperature: {Math.round(weatherData.temp)}°C</div>
-            <div>Rain: {weatherData.rain}mm ({weatherData.pop}%)</div>
+            <div>Max. Temperature: {weatherData.Temperature.Maximum.Value}°C</div>
+            <div>Rain: {weatherData.Day.Rain.Value}mm ({weatherData.Day.RainProbability}%)</div>
         </Styled>
     )
 }
