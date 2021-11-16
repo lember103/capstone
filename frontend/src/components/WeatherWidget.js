@@ -26,8 +26,9 @@ export default function WeatherWidget(){
 
     return(
         <Styled>
-            <div>Max. Temperature: {weatherData.Temperature.Maximum.Value}°C</div>
+            <div>Max. Temperature: {Math.round(weatherData.Temperature.Maximum.Value)}°C</div>
             <div>Rain: {weatherData.Day.Rain.Value}mm ({weatherData.Day.RainProbability}%)</div>
+            <div>Rel. Bodenfechtigkeit: {Math.round(Math.random()*100)}%</div>
         </Styled>
     )
 }
