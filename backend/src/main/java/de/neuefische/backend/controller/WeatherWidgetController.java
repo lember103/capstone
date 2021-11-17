@@ -1,7 +1,6 @@
 package de.neuefische.backend.controller;
 
 import de.neuefische.backend.model.DailyForecasts;
-import de.neuefische.backend.service.AccuWeatherApiService;
 import de.neuefische.backend.service.WeatherWidgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
