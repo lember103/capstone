@@ -1,20 +1,21 @@
-import PumpAction from "./components/PumpAction";
-import styled from "styled-components";
-import WeatherWidget from "./components/WeatherWidget";
+import {Route, Switch} from 'react-router-dom'
+import LoginPage from "./pages/LoginPage";
+import Homepage from "./pages/HomePage";
+import PrivateRoute from "./routing/PrivateRoute";
 
 function App() {
 
     return (
-        <Styled>
-            <PumpAction/>
-            <WeatherWidget/>
-        </Styled>
+        <Switch>
+            <Route path='/login'>
+                <LoginPage/>
+            </Route>
+            <PrivateRoute path='/' exact>
+                <Homepage/>
+            </PrivateRoute>
+        </Switch>
 
     );
 }
 
 export default App;
-
-const Styled = styled.div `
-
-`

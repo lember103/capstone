@@ -13,7 +13,7 @@ import java.util.Objects;
 public class AccuWeatherApiService {
 
     @Value("${microgardener.accuweather.apikey}")
-    private static String API_KEY;
+    private static String API_KEY = "xiXJGJfVofWBtkbSj51vTclQh0ognRyA";
     private static final String API_URL = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/178087?apikey="+API_KEY+"&details=true&metric=true";
     private final RestTemplate restTemplate = new RestTemplate();
 
