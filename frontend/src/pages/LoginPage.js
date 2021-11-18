@@ -1,6 +1,8 @@
 import {useContext, useState} from 'react'
 import styled from "styled-components/macro";
 import {AuthContext} from "../context/AuthProvider";
+import {Avatar, Box, Button, TextField, Typography} from "@mui/material";
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 const initialState = {
     username: '',
@@ -22,30 +24,30 @@ export default function LoginPage() {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <label htmlFor="username">
-                Username
-            </label>
-            <input
-                type="text"
+            <Avatar sx={{ m: 1, bgcolor: "#1565c0"}}>
+                <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+                Login
+            </Typography>
+            <TextField
+                id="username" label="Username" variant="outlined"
                 required
                 value={credentials.username}
                 name="username"
-                id="username"
                 onChange={handleChange}
             />
-
-            <label htmlFor="password">
-                Passwort </label>
-            <input
+            <TextField
                 type="password"
+                label="password"
+                variant="outlined"
                 required
                 value={credentials.password}
                 name="password"
                 id="password"
                 onChange={handleChange}
             />
-
-            <button>Login</button>
+            <Button type="submit" variant="contained">Login</Button>
         </Form>
     )
 }
@@ -56,5 +58,5 @@ const Form = styled.form`
   gap: 15px;
   align-items: center;
   flex-direction: column;
-
+  margin-top: 100px;
 `
