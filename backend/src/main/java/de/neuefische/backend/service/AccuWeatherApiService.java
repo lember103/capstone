@@ -1,7 +1,7 @@
 package de.neuefische.backend.service;
 
-import de.neuefische.backend.model.DailyForecasts;
-import de.neuefische.backend.model.WeatherForecast;
+import de.neuefische.backend.model.api.DailyForecast;
+import de.neuefische.backend.model.api.WeatherForecast;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class AccuWeatherApiService {
         this.apiURL = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/178087?apikey="+apiKEY+"&details=true&metric=true";
     }
 
-    public DailyForecasts getWeatherForecastFromAccuWeather() {
+    public DailyForecast getWeatherForecastFromAccuWeather() {
         ResponseEntity<WeatherForecast> response = restTemplate.getForEntity(apiURL, WeatherForecast.class);
         return Objects.requireNonNull(response.getBody(), "There were no data received from OpenWeather").getDailyForecasts().get(0);
     }
