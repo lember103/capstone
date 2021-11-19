@@ -1,4 +1,4 @@
-package de.neuefische.backend.model;
+package de.neuefische.backend.model.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Temperature {
-    @JsonProperty("Maximum")
-    private Maximum maximum;
+public class Quantity {
+    @JsonProperty("Value")
+    private float value;
+    @JsonProperty("Unit")
+    private String unit;
 }

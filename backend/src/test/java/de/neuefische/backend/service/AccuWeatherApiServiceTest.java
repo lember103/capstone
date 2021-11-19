@@ -1,6 +1,6 @@
 package de.neuefische.backend.service;
 
-import de.neuefische.backend.model.*;
+import de.neuefische.backend.model.api.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,20 +21,20 @@ class AccuWeatherApiServiceTest {
     @Test
     void getWeatherForecastFromAccuWeather() {
         //GIVEN
-        DailyForecasts expected = new DailyForecasts(
+        DailyForecast expected = new DailyForecast(
                 "01.01.2000",
                 new Temperature(
                         new Maximum(28,"C")
                 ),
-                new Day(
+                new Rain(
                         30,
-                        new Rain(2, "mm")
+                        new Quantity(2, "mm")
                 )
         );
         when(accuWeatherApiService.getWeatherForecastFromAccuWeather())
                 .thenReturn(expected);
         //WHEN
-        DailyForecasts actual = weatherWidgetService.getWeatherForecast();
+        DailyForecast actual = weatherWidgetService.getWeatherForecast();
         //THEN
         assertEquals(expected, actual);
     }

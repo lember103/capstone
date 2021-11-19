@@ -1,6 +1,6 @@
 package de.neuefische.backend.controller;
 
-import de.neuefische.backend.model.*;
+import de.neuefische.backend.model.api.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -19,26 +19,26 @@ class WeatherWidgetControllerTest {
     @Test
     void getWeatherForecast() {
         //GIVEN
-        DailyForecasts expected = new DailyForecasts(
+        DailyForecast expected = new DailyForecast(
                 "01.01.2000",
                 new Temperature(
                         new Maximum(28,"C")
                 ),
-                new Day(
+                new Rain(
                         30,
-                        new Rain(2, "mm")
+                        new Quantity(2, "mm")
                 )
         );
-        when(testRestTemplate.getForEntity("/api/forecast", DailyForecasts.class))
+        when(testRestTemplate.getForEntity("/api/forecast", DailyForecast.class))
                 .thenReturn(ResponseEntity.ok(expected));
 
         //WHEN
-        ResponseEntity<DailyForecasts> response = testRestTemplate.getForEntity(
-                "/api/forecast", DailyForecasts.class);
-        DailyForecasts actual = response.getBody();
+        ResponseEntity<DailyForecast> response = testRestTemplate.getForEntity(
+                "/api/forecast", DailyForecast.class);
+        DailyForecast actual = response.getBody();
 
         //THEN
         assertEquals(expected, actual);
-        verify(testRestTemplate).getForEntity("/api/forecast", DailyForecasts.class);
+        verify(testRestTemplate).getForEntity("/api/forecast", DailyForecast.class);
     }
 }

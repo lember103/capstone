@@ -1,6 +1,6 @@
 package de.neuefische.backend.service;
 
-import de.neuefische.backend.model.DailyForecasts;
+import de.neuefische.backend.model.api.DailyForecast;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +14,7 @@ public class WeatherWidgetService {
         this.accuWeatherApiService = accuWeatherApiService;
     }
 
-    public DailyForecasts getWeatherForecast(){
+    public DailyForecast getWeatherForecast(){
         return accuWeatherApiService.getWeatherForecastFromAccuWeather();
     }
 }

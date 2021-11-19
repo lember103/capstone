@@ -1,4 +1,4 @@
-package de.neuefische.backend.model;
+package de.neuefische.backend.model.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Day {
-    @JsonProperty("RainProbability")
-    private int rainProbability;
-    @JsonProperty("Rain")
-    private Rain rain;
+public class Maximum {
+    @JsonProperty("Value")
+    private float value;
+    @JsonProperty("Unit")
+    private String unit;
 }
