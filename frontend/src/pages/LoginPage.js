@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import {AuthContext} from "../context/AuthProvider";
 import {Avatar, Box, Button, TextField, Typography} from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Header from "../components/Header";
 
 const initialState = {
     username: '',
@@ -24,6 +25,7 @@ export default function LoginPage() {
 
     return (
         <Form onSubmit={handleSubmit}>
+            <Header/>
             <Avatar sx={{ m: 1, bgcolor: "#1565c0"}}>
                 <LockOutlinedIcon />
             </Avatar>
@@ -58,5 +60,4 @@ const Form = styled.form`
   gap: 15px;
   align-items: center;
   flex-direction: column;
-  margin-top: 100px;
 `
