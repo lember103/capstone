@@ -24,35 +24,43 @@ export default function LoginPage() {
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <PageLayout>
             <Header/>
-            <Avatar sx={{ m: 1, bgcolor: "#1565c0"}}>
-                <LockOutlinedIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-                Login
-            </Typography>
-            <TextField
-                id="username" label="Username" variant="outlined"
-                required
-                value={credentials.username}
-                name="username"
-                onChange={handleChange}
-            />
-            <TextField
-                type="password"
-                label="password"
-                variant="outlined"
-                required
-                value={credentials.password}
-                name="password"
-                id="password"
-                onChange={handleChange}
-            />
-            <Button type="submit" variant="contained">Login</Button>
-        </Form>
+            <Form onSubmit={handleSubmit}>
+                <LockOutlinedIcon/>
+                <Typography component="h1" variant="h5">
+                    Login
+                </Typography>
+                <TextField
+                    id="username" label="Username" variant="outlined"
+                    required
+                    value={credentials.username}
+                    name="username"
+                    onChange={handleChange}
+                />
+                <TextField
+                    type="password"
+                    label="password"
+                    variant="outlined"
+                    required
+                    value={credentials.password}
+                    name="password"
+                    id="password"
+                    onChange={handleChange}
+                />
+                <Button type="submit" variant="contained">Login</Button>
+            </Form>
+        </PageLayout>
+
     )
 }
+const PageLayout = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 130px;
+  align-items: center;
+  flex-direction: column;
+`
 
 const Form = styled.form`
   display: flex;
