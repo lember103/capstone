@@ -14,7 +14,7 @@ import java.util.HashMap;
 @Service
 public class JWTUtilService {
 
-    @Value("${microgardener.jwt.secret}")
+    @Value("${JWT_SECRET}")
     private String JWT_SECRET;
 
     private long duration = 4 * 60 * 60 * 1000;

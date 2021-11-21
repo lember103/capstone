@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class LoginControllerTest {
@@ -29,7 +28,7 @@ class LoginControllerTest {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Value("${microgardener.jwt.secret}")
+    @Value("${JWT_SECRET}")
     private String JWT_SECRET;
 
     @Test
