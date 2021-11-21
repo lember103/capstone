@@ -4,7 +4,6 @@ import de.neuefische.backend.model.api.*;
 import de.neuefische.backend.security.model.AppUser;
 import de.neuefische.backend.security.repo.AppUserRepo;
 import de.neuefische.backend.service.AccuWeatherApiService;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
