@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -48,6 +49,7 @@ class WeatherWidgetControllerTest {
     void getWeatherForecast(){
         //GIVEN
         DailyForecast expected = new DailyForecast(
+                "0",
                 "date",
                 new Temperature(
                         new Maximum(10, "C")
@@ -56,7 +58,7 @@ class WeatherWidgetControllerTest {
                         new Quantity(2, "mm")
                 ));
         when(accuWeatherApiService.getWeatherForecastFromAccuWeather())
-                .thenReturn(expected);
+                .thenReturn(Optional.of(expected));
 
         //WHEN
         ResponseEntity<DailyForecast> response = testRestTemplate.exchange(
