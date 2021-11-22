@@ -1,7 +1,7 @@
 import {useContext, useState} from 'react'
 import styled from "styled-components/macro";
 import {AuthContext} from "../context/AuthProvider";
-import {Avatar, Box, Button, TextField, Typography} from "@mui/material";
+import {Button, TextField, Typography} from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Header from "../components/Header";
 

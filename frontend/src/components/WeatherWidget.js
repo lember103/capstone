@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {useState, useEffect, useContext} from "react";
 import {getWeatherData} from "../service/weather-api-service";
 import {AuthContext} from "../context/AuthProvider";
+import HeavyRainIcon from "./icons/HeavyRainIcon";
 
 export default function WeatherWidget(){
 
@@ -28,6 +29,7 @@ export default function WeatherWidget(){
 
     return(
         <Styled>
+            <HeavyRainIcon/>
             <div>Max. Temperature: {Math.round(weatherData.Temperature.Maximum.Value)}°C</div>
             <div>Rain: {weatherData.Day.Rain.Value}mm ({weatherData.Day.RainProbability}%)</div>
             <div>Rel. Bodenfeuchtigkeit: {Math.round(Math.random()*100)}%</div>
