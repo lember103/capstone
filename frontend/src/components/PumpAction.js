@@ -1,17 +1,19 @@
 import styled from "styled-components";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {runPump, stopPump} from "../service/timer-api-service";
+import {AuthContext} from "../context/AuthProvider";
 
 export default function PumpAction(){
 
+    const {token} = useContext(AuthContext);
     const [minutes, setMinutes] = useState(0)
 
     const handleClickRunPumpButton = () => {
-        runPump(minutes).then()
+        runPump(minutes, token).then()
     }
 
     const handleClickStopPumpButton = () => {
-        stopPump(minutes).then()
+        stopPump(minutes, token).then()
     }
 
     return(

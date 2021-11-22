@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
 import {getWeatherData} from "../service/weather-api-service";
+import {AuthContext} from "../context/AuthProvider";
 
 export default function WeatherWidget(){
 
@@ -19,16 +20,17 @@ export default function WeatherWidget(){
     }
 
     const [weatherData, setWeatherData] = useState(initialState)
+    const {token} = useContext(AuthContext)
 
     useEffect(() => {
-        getWeatherData().then(setWeatherData)
+        getWeatherData(token).then(setWeatherData)
     }, [])
 
     return(
         <Styled>
             <div>Max. Temperature: {Math.round(weatherData.Temperature.Maximum.Value)}°C</div>
             <div>Rain: {weatherData.Day.Rain.Value}mm ({weatherData.Day.RainProbability}%)</div>
-            <div>Rel. Bodenfechtigkeit: {Math.round(Math.random()*100)}%</div>
+            <div>Rel. Bodenfeuchtigkeit: {Math.round(Math.random()*100)}%</div>
         </Styled>
     )
 }

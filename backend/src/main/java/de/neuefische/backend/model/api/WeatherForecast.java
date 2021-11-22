@@ -1,4 +1,4 @@
-package de.neuefische.backend.model;
+package de.neuefische.backend.model.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -14,6 +13,5 @@ import java.util.List;
 public class WeatherForecast {
 
     @JsonProperty("DailyForecasts")
-    private List<DailyForecasts> dailyForecasts = new ArrayList<>();
-
+    private ArrayList<DailyForecast> dailyForecasts;
 }
