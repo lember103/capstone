@@ -1,7 +1,6 @@
 package de.neuefische.backend.service;
 
 import de.neuefische.backend.model.api.DailyForecast;
-import de.neuefische.backend.repo.TimerRepo;
 import de.neuefische.backend.repo.WeatherDataRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -10,14 +10,22 @@ export default function Homepage(){
             <Header/>
             <WeatherWidget/>
             <PumpAction/>
+            <h4>Pump Action</h4>
         </PageStyle>
     )
 }
 
 const PageStyle = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
   align-items: center;
-  flex-direction: column
+  h4{
+    width: 100px;
+    justify-items: center;
+    margin-top: -190px;
+    padding-left: 10px;
+    margin-right: 180px;
+    background-color: white;
+    font-family: "Trebuchet MS",serif;
+  }
 `
