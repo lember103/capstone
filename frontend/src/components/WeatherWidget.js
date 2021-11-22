@@ -24,7 +24,7 @@ export default function WeatherWidget(){
 
     useEffect(() => {
         getWeatherData(token).then(setWeatherData)
-    }, [])
+    }, [token])
 
     return(
         <Styled>
