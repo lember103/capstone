@@ -9,8 +9,9 @@ export default function Homepage(){
         <PageStyle>
             <Header/>
             <WeatherWidget/>
+            <h4 className="dashBoard">Dashboard</h4>
             <PumpAction/>
-            <h4>Pump Action</h4>
+            <h4 className="pumpAction">Pump Action</h4>
         </PageStyle>
     )
 }
@@ -19,13 +20,21 @@ const PageStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  h4{
+  .pumpAction{
     width: 100px;
     justify-items: center;
-    margin-top: -190px;
-    padding-left: 10px;
+    margin-top: -192px;
+    padding-left: 8px;
     margin-right: 180px;
     background-color: white;
     font-family: "Trebuchet MS",serif;
+  }
+  .dashBoard{
+    width: 90px;
+    background-color: white;
+    font-family: "Trebuchet MS",serif;
+    margin-top: -170px;
+    padding-left: 13px;
+    margin-right: 160px;
   }
 `

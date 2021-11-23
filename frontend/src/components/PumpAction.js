@@ -11,8 +11,6 @@ export default function PumpAction(){
     const {token} = useContext(AuthContext);
     const [minutes, setMinutes] = useState(0)
 
-    console.log(minutes)
-
     const handleClickRunPumpButton = () => {
         runPump(minutes, token).then()
     }
@@ -45,13 +43,18 @@ const StyledComponent = styled.div `
   border-radius: 12px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  margin-top: 30px;
+  margin-top: 180px;
   .Button{
     font-family: "Trebuchet MS",serif;
     font-weight: bold;
     font-size: 20px;
     color: black;
     border-color: black;
+    
+    &:focus{
+      background-color: #338032;
+      border-color: black;
+    }
   }
 `
 
