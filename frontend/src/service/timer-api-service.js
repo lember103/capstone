@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const getHeader = token => {
-    console.log(token)
     return {
         headers:{
             Authorization: `Bearer ${token}`
