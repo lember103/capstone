@@ -28,7 +28,7 @@ export default function PumpAction(){
                         key={minute}
                         className="Button"
                         variant="outlined"
-                        onClick={()=>{setMinutes(minutes)}}>{minute}'
+                        onClick={()=>{setMinutes(minute)}}>{minute}'
                     </Button>)}
             </MinuteButtons>
             <ActionButtons>
