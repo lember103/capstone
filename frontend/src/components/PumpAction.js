@@ -10,6 +10,7 @@ export default function PumpAction(){
 
     const {token} = useContext(AuthContext);
     const [minutes, setMinutes] = useState(0)
+    const durations = [5, 10, 15, 20]
 
     const handleClickRunPumpButton = () => {
         runPump(minutes, token).then()
@@ -22,14 +23,29 @@ export default function PumpAction(){
     return(
         <StyledComponent>
             <MinuteButtons>
-                <Button className="Button" variant="outlined" onClick={()=>{setMinutes(5)}}>5'</Button>
-                <Button className="Button" variant="outlined" onClick={()=>{setMinutes(10)}}>10'</Button>
-                <Button className="Button" variant="outlined" onClick={()=>{setMinutes(15)}}>15'</Button>
-                <Button className="Button" variant="outlined" onClick={()=>{setMinutes(20)}}>20'</Button>
+                {durations.map(minute =>
+                    <Button
+                        key={minute}
+                        className="Button"
+                        variant="outlined"
+                        onClick={()=>{setMinutes(minutes)}}>{minute}'
+                    </Button>)}
             </MinuteButtons>
             <ActionButtons>
-                <Button className="Button" variant="outlined" startIcon={<PlayCircleOutlineIcon sx={{ fontSize: 40 }}/>} onClick={handleClickRunPumpButton}>start</Button>
-                <Button className="Button" variant="outlined" startIcon={<StopCircleOutlinedIcon/>} onClick={handleClickStopPumpButton}>stop</Button>
+                <Button
+                    className="Button"
+                    variant="outlined"
+                    startIcon={<PlayCircleOutlineIcon sx={{ fontSize: 40 }}/>}
+                    onClick={handleClickRunPumpButton}>
+                    start
+                </Button>
+                <Button
+                    className="Button"
+                    variant="outlined"
+                    startIcon={<StopCircleOutlinedIcon/>}
+                    onClick={handleClickStopPumpButton}>
+                    stop
+                </Button>
             </ActionButtons>
         </StyledComponent>
     )
