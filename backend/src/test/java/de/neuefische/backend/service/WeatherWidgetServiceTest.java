@@ -29,6 +29,8 @@ class WeatherWidgetServiceTest {
                 ));
         when(accuWeatherApiService.getWeatherForecastFromAccuWeather())
                 .thenReturn(Optional.of(expected));
+        when(weatherDataRepo.save(expected))
+                .thenReturn(expected);
         //WHEN
         DailyForecast actual = weatherWidgetService.getWeatherForecast();
 
