@@ -75,7 +75,7 @@ class TimerControllerTest {
 
         //WHEN
         ResponseEntity<PumpTimer> postResponse = testRestTemplate.exchange(
-                "/api/timer",
+                "/api/timer/update",
                 HttpMethod.POST,
                 new HttpEntity<>(timer, getHttpHeadersWithJWT()),
                 PumpTimer.class);

@@ -14,7 +14,7 @@ export const runPump = (minutes, token) => {
         stopPump: false
     }
     return axios
-        .post("/api/timer", timer, getHeader(token))
+        .post("/api/timer/update", timer, getHeader(token))
         .then(response => response.data)
         .catch(error => console.log(error))
 }
@@ -25,7 +25,7 @@ export const stopPump = (minutes, token) => {
         stopPump: true
     }
     return axios
-        .post("/api/timer", timer, getHeader(token))
+        .post("/api/timer/update", timer, getHeader(token))
         .then(response => response.data)
         .catch(error => console.log(error))
 }

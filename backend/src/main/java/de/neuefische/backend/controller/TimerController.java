@@ -23,7 +23,7 @@ public class TimerController {
         return timerService.getTimer();
     }
 
-    @PostMapping
+    @PostMapping("/update")
     public PumpTimer updateTimer(@RequestBody PumpTimer pumpTimer){
         return timerService.update(pumpTimer);
     }
