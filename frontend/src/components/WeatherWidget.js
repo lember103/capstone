@@ -7,6 +7,7 @@ import MediumRainIcon from "./icons/MediumRainIcon";
 import MaxTempIcon from "./icons/MaxTempIcon";
 import MoistureIcon from "./icons/MoistureIcon";
 import LightRainIcon from "./icons/LightRainIcon";
+import ContainerLevel from "./icons/ContainerLevel";
 
 export default function WeatherWidget() {
 
@@ -43,6 +44,10 @@ export default function WeatherWidget() {
             <div className="rainData">{weatherData.Day.RainProbability}%</div>
             <MoistureIcon/>
             <div className="data">{Math.round(Math.random() * 100)}%</div>
+            <div className="cloud">
+                <ContainerLevel/>
+            </div>
+            <div className="rainData">{Math.round(Math.random() * 100)}%</div>
         </StyledComponent>
     )
 }
