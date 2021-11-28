@@ -1,5 +1,5 @@
 export default function LightRainIcon(){
-    return <svg width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
+    return <svg className="icon" width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
         <g transform="matrix(2 0 0 1.9999 -88.388 -143.04)">
             <rect x="44.194" y="73.552" width="6.35" height="2.2761" rx="1.1959" strokeWidth=".016518"/>
             <ellipse cx="46.235" cy="73.535" rx="1.3474" ry="1.4679" strokeWidth=".016518"/>

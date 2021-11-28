@@ -1,5 +1,5 @@
 export default function HeavyRainIcon(){
-    return <svg width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
+    return <svg className="icon" width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
         <g transform="matrix(2 0 0 1.9999 -106.89 -144.35)">
             <rect x="53.443" y="73.936" width="6.35" height="1.9738" rx="1.1959" strokeWidth=".015382"/>
             <ellipse cx="55.484" cy="73.922" rx="1.3474" ry="1.273" strokeWidth=".015382"/>

@@ -1,5 +1,5 @@
 export default function MoistureIcon(){
-    return <svg width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
+    return <svg className="icon" width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(-54.283 -158.23)">
             <g strokeWidth=".059293">
                 <path d="m58.442 168.22c0 0.79247-0.43921 1.4505-1.0066 1.5082-0.56742 0.0577-1.0706-0.50457-1.1532-1.2886-0.08261-0.78407 1.0466-3.1049 1.0466-3.1049s0.90393 1.6918 1.0674 2.4509"/>

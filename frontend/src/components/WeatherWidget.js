@@ -34,53 +34,56 @@ export default function WeatherWidget() {
 
     return (
         <StyledComponent>
-            <MaxTempIcon/>
-            <div className="data">{Math.round(weatherData.Temperature.Maximum.Value)}°C</div>
-            <div className="cloud">
+            <fieldset>
+                <legend>Dashboard</legend>
+                <MaxTempIcon/>
+                <text>
+                    {Math.round(weatherData.Temperature.Maximum.Value)}°C
+                </text>
                 {weatherData.Day.Rain.Value < 1 && <LightRainIcon/>}
                 {weatherData.Day.Rain.Value >= 1 && weatherData.Day.Rain.Value < 2 && <MediumRainIcon/>}
                 {weatherData.Day.Rain.Value >= 2 && <HeavyRainIcon/>}
-            </div>
-            <div className="rainData">{weatherData.Day.RainProbability}%</div>
-            <MoistureIcon/>
-            <div className="data">{Math.round(Math.random() * 100)}%</div>
-            <div className="cloud">
+                <text>
+                    {weatherData.Day.RainProbability}%
+                </text>
+                <MoistureIcon/>
+                <text>
+                    {Math.round(Math.random() * 100)}%
+                </text>
                 <ContainerLevel/>
-            </div>
-            <div className="rainData">{Math.round(Math.random() * 100)}%</div>
+                <text>
+                    {Math.round(Math.random() * 100)}%
+                </text>
+            </fieldset>
         </StyledComponent>
     )
 }
 
-const StyledComponent = styled.div`
-  display: grid;
-  grid-template-columns: 50px 50px 50px 50px;
-  grid-template-rows: 50px 50px;
-  column-gap: 20px;
-  row-gap: 20px;
-  border: black 1px solid;
-  border-radius: 12px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  margin-top: 100px;
-
-  .data {
-    font-family: "Trebuchet MS", serif;
+const StyledComponent = styled.section`
+  display: flex;
+  justify-content: center;
+  fieldset{
+    max-width: 280px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 12px;
+    box-shadow: 5px 5px 5px gray;
+  }
+  text{
+    width: 60px;
+    font-family: "Trebuchet MS",serif;
     font-weight: bold;
     font-size: 20px;
-    padding-top: 10px;
-    margin-left: -10px;
   }
-  
-  .cloud{
-    padding-left: 30px;
+  .icon{
+    margin: 10px;
   }
-  
-  .rainData{
-    font-family: "Trebuchet MS", serif;
+  legend{
+    font-family: "Trebuchet MS",serif;
     font-weight: bold;
     font-size: 20px;
-    padding-top: 10px;
-    margin-left: 20px;
   }
 `
