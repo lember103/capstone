@@ -3,6 +3,7 @@ import {useContext, useState} from "react";
 import {runPump, stopPump} from "../service/timer-api-service";
 import {AuthContext} from "../context/AuthProvider";
 import StartIcon from "./icons/StartIcon";
+import StopIcon from "./icons/StopIcon";
 
 export default function PumpAction() {
 
@@ -32,7 +33,7 @@ export default function PumpAction() {
                     <StartIcon/>
                 </button>
                 <button onClick={handleClickStopPumpButton}>
-
+                    <StopIcon/>
                 </button>
             </fieldset>
         </StyledComponent>
@@ -42,6 +43,7 @@ export default function PumpAction() {
 const StyledComponent = styled.section`
   display: flex;
   justify-content: center;
+  margin-top: 30px;
   legend{
     font-family: "Trebuchet MS",serif;
     font-weight: bold;
@@ -59,7 +61,12 @@ const StyledComponent = styled.section`
   button{
     width: 70px;
     height: 70px;
-    margin: 10px;
+    margin: 10px; 
+    background-color: white;
+    border-radius: 12px;
+    &:focus{
+     background-color: #338032; 
+    }
   }
   text{
     font-family: "Trebuchet MS",serif;

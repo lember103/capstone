@@ -62,6 +62,7 @@ export default function WeatherWidget() {
 const StyledComponent = styled.section`
   display: flex;
   justify-content: center;
+  margin-top: 50px;
   fieldset{
     max-width: 280px;
     display: flex;
