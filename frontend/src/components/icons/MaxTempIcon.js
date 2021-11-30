@@ -1,5 +1,5 @@
 export default function MaxTempIcon(){
-    return <svg width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
+    return <svg className="icon" width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
         <g transform="matrix(2.2531 0 0 2 -145.29 -75.082)">
             <rect x="67.05" y="38.633" width="2.6394" height=".21839" rx=".22904" strokeWidth=".010658"/>
             <rect x="66.515" y="39.011" width="2.6394" height=".21839" rx=".22904" strokeWidth=".010658"/>

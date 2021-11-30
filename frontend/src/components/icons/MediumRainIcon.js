@@ -1,5 +1,5 @@
 export default function MediumRainIcon(){
-    return <svg width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
+    return <svg className="icon" width="12.7mm" height="12.7mm" version="1.1" viewBox="0 0 12.7 12.7" xmlns="http://www.w3.org/2000/svg">
         <g transform="matrix(2 0 0 1.9999 -41.818 -143.52)">
             <rect x="20.909" y="73.763" width="6.35" height="2.2472" rx="1.1959" strokeWidth=".016413"/>
             <ellipse cx="22.95" cy="73.747" rx="1.3474" ry="1.4493" strokeWidth=".016413"/>

@@ -2,11 +2,10 @@ import styled from "styled-components";
 import {useContext, useState} from "react";
 import {runPump, stopPump} from "../service/timer-api-service";
 import {AuthContext} from "../context/AuthProvider";
-import {Button} from "@mui/material";
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import StopCircleOutlinedIcon from '@mui/icons-material/StopCircleOutlined';
+import StartIcon from "./icons/StartIcon";
+import StopIcon from "./icons/StopIcon";
 
-export default function PumpAction(){
+export default function PumpAction() {
 
     const {token} = useContext(AuthContext);
     const [minutes, setMinutes] = useState(0)
@@ -20,72 +19,60 @@ export default function PumpAction(){
         stopPump(minutes, token).then()
     }
 
-    return(
+    return (
         <StyledComponent>
-            <MinuteButtons>
+            <fieldset>
+                <legend>
+                    Pump Action
+                </legend>
                 {durations.map(minute =>
-                    <Button
-                        key={minute}
-                        className="Button"
-                        variant="outlined"
-                        onClick={()=>{setMinutes(minute)}}>{minute}'
-                    </Button>)}
-            </MinuteButtons>
-            <ActionButtons>
-                <Button
-                    className="Button"
-                    variant="outlined"
-                    startIcon={<PlayCircleOutlineIcon sx={{ fontSize: 40 }}/>}
-                    onClick={handleClickRunPumpButton}>
-                    start
-                </Button>
-                <Button
-                    className="Button"
-                    variant="outlined"
-                    startIcon={<StopCircleOutlinedIcon/>}
-                    onClick={handleClickStopPumpButton}>
-                    stop
-                </Button>
-            </ActionButtons>
+                    <button key={minute} onClick={() => {setMinutes(minute)}}>
+                        <text>{minute}'</text>
+                    </button>)}
+                <button onClick={handleClickRunPumpButton}>
+                    <StartIcon/>
+                </button>
+                <button onClick={handleClickStopPumpButton}>
+                    <StopIcon/>
+                </button>
+            </fieldset>
         </StyledComponent>
     )
 }
 
-const StyledComponent = styled.div `
+const StyledComponent = styled.section`
   display: flex;
   justify-content: center;
-  gap: 40px;
-  border: black 1px solid;
-  border-radius: 12px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  margin-top: 180px;
-  .Button{
+  margin-top: 30px;
+  legend{
     font-family: "Trebuchet MS",serif;
     font-weight: bold;
     font-size: 20px;
-    color: black;
-    border-color: black;
-    
+  }
+  fieldset{
+    max-width: 280px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 12px;
+    box-shadow: 5px 5px 5px gray;
+  }
+  button{
+    width: 70px;
+    height: 70px;
+    margin: 10px; 
+    background-color: white;
+    border-radius: 12px;
     &:focus{
-      background-color: #338032;
-      border-color: black;
+     background-color: #338032; 
     }
   }
-`
-
-const MinuteButtons = styled.div`
-  display: grid;
-  grid-template-columns: [secon] 60px [third] 60px;
-  grid-template-rows: [first] 60px [second] 60px;
-  column-gap: 20px;
-  row-gap: 20px;
-`
-
-const ActionButtons = styled.div `
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  text{
+    font-family: "Trebuchet MS",serif;
+    font-weight: bold;
+    font-size: 20px;
+  }
 `
 
 
